@@ -12,9 +12,6 @@ listings = soup.find_all('div', {'id': 'tdi_24'})
 # Almacenar los datos en una lista
 data_list = []
 for data in listings:
-    title = data.find('h3').text
-    description = data.find('div', {'class': 'td-excerpt'}).text
-    date = data.find('time').text
     descendants = [descendant.strip() for descendant in data.descendants if isinstance(descendant, str)]
     data_list.append({'descendants': descendants})
 
